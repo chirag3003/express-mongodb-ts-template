@@ -7,8 +7,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "dev": "nodemon --watch 'src/**/*.ts' --exec 'node --loader @esbuild-kit/esm-loader' src/index.ts"
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'node --loader @esbuild-kit/esm-loader' src/index.ts",
+    "start": "node --loader @esbuild-kit/esm-loader src/index.ts"
   },
   "devDependencies": {
     "@esbuild-kit/esm-loader": "^2.5.5",
