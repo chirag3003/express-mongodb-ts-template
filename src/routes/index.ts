@@ -1,5 +1,8 @@
-import {Router} from "express"
+import { Router } from "express";
+import exampleRoutes from "./example.routes";
 
 const router = Router();
 
-export default router
+router.use("/example", exampleRoutes);
+
+export default router;
