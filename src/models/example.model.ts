@@ -2,7 +2,10 @@ import mongoose from 'mongoose'
 
 const exampleSchema = new mongoose.Schema(
   {
-    msg: String,
+    msg: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 )

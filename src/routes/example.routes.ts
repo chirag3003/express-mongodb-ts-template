@@ -3,8 +3,9 @@ import { Router } from 'express'
 
 const router = Router()
 
-const { getExample } = new ExampleController()
+const { getExample, getExamples } = new ExampleController()
 
-router.get('/', getExample)
+router.get('/', getExamples)
+router.get('/:id', getExample)
 
 export default router
