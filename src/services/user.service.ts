@@ -1,5 +1,5 @@
-import { IUserService } from 'interfaces/user.interface'
-import { User } from 'models/user.model'
+import { IUserService } from '@/interfaces/user.interface'
+import { User } from '@/models/user.model'
 
 export class UserService implements IUserService {
   async getUserByEmail(email: string): Promise<IUser | null> {

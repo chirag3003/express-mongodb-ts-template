@@ -1,12 +1,12 @@
 import { Request, Response } from 'express'
 import { StatusCodes } from 'http-status-codes'
-import { IAuthController } from 'interfaces/auth.interface'
-import { AuthService } from 'services/auth.service'
+import { IAuthController } from '@/interfaces/auth.interface'
+import { AuthService } from '@/services/auth.service'
 import {
   CreateUserInput,
   createUserInputValidator,
   loginUserInputValidator,
-} from 'validators/user.validator'
+} from '@/validators/user.validator'
 import { ZodError } from 'zod'
 
 const authService = new AuthService()

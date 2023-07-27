@@ -1,7 +1,7 @@
-import { IAuthService } from 'interfaces/auth.interface'
-import { getPasswordKeys, validatePassword } from 'lib/user.lib'
-import { User } from 'models/user.model'
-import { CreateUserInput } from 'validators/user.validator'
+import { IAuthService } from '@/interfaces/auth.interface'
+import { getPasswordKeys, validatePassword } from '@/lib/user.lib'
+import { User } from '@/models/user.model'
+import { CreateUserInput } from '@/validators/user.validator'
 
 export class AuthService implements IAuthService {
   async loginUser(email: string, password: string): Promise<IUser | null> {

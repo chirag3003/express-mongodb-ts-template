@@ -2,9 +2,9 @@ import 'dotenv/config'
 import express, { Application } from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
-import routes from 'routes'
+import routes from '@/routes/index'
 import helmet from 'helmet'
-import 'utils/db'
+import '@/utils/db'
 
 const app: Application = express()
 

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
-import { IExampleController } from 'interfaces/example.interface'
+import { IExampleController } from '@/interfaces/example.interface'
 import { ReasonPhrases, StatusCodes } from 'http-status-codes'
-import { ExampleService } from 'services/example.service'
+import { ExampleService } from '@/services/example.service'
 
 const exampleServices = new ExampleService()
 
