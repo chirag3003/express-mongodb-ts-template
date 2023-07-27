@@ -7,4 +7,4 @@ const exampleSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export const Example =  mongoose.model("example", exampleSchema);
+export const Example = mongoose.model("example", exampleSchema);
