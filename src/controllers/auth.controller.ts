@@ -27,6 +27,7 @@ export class AuthController implements IAuthController {
   }
   async login(req: Request, res: Response): Promise<void> {
     try {
+      res.sendStatus(StatusCodes.OK)
     } catch (err) {
       console.error(err)
       res.sendStatus(StatusCodes.INTERNAL_SERVER_ERROR)

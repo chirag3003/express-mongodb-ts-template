@@ -17,7 +17,7 @@ export default class ExampleController implements IExampleController {
   async getExamples(req: Request, res: Response) {
     try {
       const data = await exampleServices.getExamples()
-      
+
       res.status(StatusCodes.OK).json(data)
     } catch (err) {
       console.error(err)

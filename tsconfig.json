@@ -8,6 +8,6 @@
     "strict": true,
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
     "baseUrl": "src",
-    "outDir": "dist"
+    "outDir": "dist",
   }
 }
