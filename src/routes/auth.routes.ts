@@ -3,9 +3,9 @@ import { Router } from 'express'
 
 const router = Router()
 
-const { signup } = new AuthController()
+const { signup, login } = new AuthController()
 
 router.post('/signup', signup)
-router.post('/login')
+router.post('/login', login)
 
 export default router

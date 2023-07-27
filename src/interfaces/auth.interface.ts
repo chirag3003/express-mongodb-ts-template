@@ -8,4 +8,5 @@ export interface IAuthController {
 
 export interface IAuthService {
   createUser(input: CreateUserInput): Promise<IUser>
+  loginUser(email: string, password: string): Promise<IUser | null>
 }

@@ -5,6 +5,7 @@ import { AuthService } from 'services/auth.service'
 import {
   CreateUserInput,
   createUserInputValidator,
+  loginUserInputValidator,
 } from 'validators/user.validator'
 import { ZodError } from 'zod'
 
@@ -27,9 +28,19 @@ export class AuthController implements IAuthController {
   }
   async login(req: Request, res: Response): Promise<void> {
     try {
+      const body = loginUserInputValidator.parse(req.body)
+      const user = await authService.loginUser(body.email, body.password)
+      if (!user) {
+        res.sendStatus(StatusCodes.UNAUTHORIZED)
+        return
+      }
       res.sendStatus(StatusCodes.OK)
     } catch (err) {
       console.error(err)
+      if (err instanceof ZodError) {
+        res.sendStatus(StatusCodes.UNAUTHORIZED)
+        return
+      }
       res.sendStatus(StatusCodes.INTERNAL_SERVER_ERROR)
     }
   }

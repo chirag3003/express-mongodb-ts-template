@@ -8,3 +8,10 @@ export const createUserInputValidator = z.object({
 })
 
 export type CreateUserInput = z.infer<typeof createUserInputValidator>
+
+export const loginUserInputValidator = z.object({
+  email: z.string().email(),
+  password: z.string().trim().min(8),
+})
+
+export type LoginUserInput = z.infer<typeof loginUserInputValidator>

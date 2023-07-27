@@ -5,5 +5,6 @@ export interface IUserController {
 }
 
 export interface IUserService {
-  getUser(id: string): void
+  getUserByEmail(email: string): Promise<IUser | null>
+  getUserById(id: string): Promise<IUser | null>
 }
