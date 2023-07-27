@@ -1,5 +1,3 @@
-interface IExample {
+interface IExample extends ITimestampModel {
   msg: string
-  createdAt: NativeDate
-  updatedAt: NativeDate
 }
