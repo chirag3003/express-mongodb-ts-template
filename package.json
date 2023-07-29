@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
-    "dev": "nodemon --watch 'src/**/*.ts' --exec 'yarn build && yarn start'",
+    "dev": "nodemon --watch 'src/' --exec 'yarn build && yarn start' -e ts",
     "start": "node dist/index.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."

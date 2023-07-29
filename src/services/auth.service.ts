@@ -1,5 +1,5 @@
 import { IAuthService } from '@/interfaces/auth.interface'
-import { getPasswordKeys, validatePassword } from '@/lib/user.lib'
+import { getPasswordKeys, validatePassword } from '@/lib/auth.lib'
 import { User } from '@/models/user.model'
 import { CreateUserInput } from '@/validators/user.validator'
 
