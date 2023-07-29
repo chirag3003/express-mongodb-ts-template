@@ -8,6 +8,7 @@ import {
   loginUserInputValidator,
 } from '@/validators/user.validator'
 import { ZodError } from 'zod'
+import { generateJWT } from '@/lib/auth.lib'
 
 const authService = new AuthService()
 
@@ -15,8 +16,10 @@ export class AuthController implements IAuthController {
   async signup(req: Request, res: Response): Promise<void> {
     try {
       const body = createUserInputValidator.parse(req.body as CreateUserInput)
-      const data = await authService.createUser(body)
-      res.status(StatusCodes.OK).json(data)
+      const user = await authService.createUser(body)
+      res
+        .status(StatusCodes.OK)
+        .json({ token: generateJWT({ _id: user._id, email: user.email }) })
     } catch (err) {
       console.error(err)
       if (err instanceof ZodError) {
@@ -34,7 +37,9 @@ export class AuthController implements IAuthController {
         res.sendStatus(StatusCodes.UNAUTHORIZED)
         return
       }
-      res.sendStatus(StatusCodes.OK)
+      res
+        .status(StatusCodes.OK)
+        .json({ token: generateJWT({ _id: user._id, email: user.email }) })
     } catch (err) {
       console.error(err)
       if (err instanceof ZodError) {

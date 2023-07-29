@@ -9,7 +9,7 @@ export class AuthService implements IAuthService {
     if (!user) return null
     const validPassword = validatePassword(password, user.hash, user.salt)
     if (!validPassword) return null
-    return user as IUser
+    return user as unknown as IUser
   }
   async createUser({ password, ...input }: CreateUserInput): Promise<IUser> {
     const user = new User(input)
@@ -17,6 +17,6 @@ export class AuthService implements IAuthService {
     user.salt = passwordKeys.salt
     user.hash = passwordKeys.hash
     await user.save()
-    return user as IUser
+    return user as unknown as IUser
   }
 }

@@ -1,4 +1,5 @@
 import crypto from 'node:crypto'
+import jwt from 'jsonwebtoken'
 
 export const getPasswordKeys = (password: string) => {
   const salt = crypto.randomBytes(16).toString('hex')
@@ -22,4 +23,8 @@ export const validatePassword = (
   } catch {
     return false
   }
+}
+
+export const generateJWT = (data: IJWTData): string => {
+  return jwt.sign(data, 'string', { expiresIn: '10d' })
 }
