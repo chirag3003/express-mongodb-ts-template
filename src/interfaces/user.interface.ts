@@ -1,4 +1,4 @@
-import { Request, Response } from 'express'
+import { Response, Request } from 'express'
 
 export interface IUserController {
   me(req: Request, res: Response): Promise<void>

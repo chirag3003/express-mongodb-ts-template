@@ -26,5 +26,10 @@ export const validatePassword = (
 }
 
 export const generateJWT = (data: IJWTData): string => {
-  return jwt.sign(data, 'string', { expiresIn: '10d' })
+  return jwt.sign(data, process.env.JWT_SECRET, { expiresIn: '10d' })
+}
+
+export const verifyJWT = (token: string): IJWTData => {
+  const data = jwt.verify(token, process.env.JWT_SECRET)
+  return data as IJWTData
 }

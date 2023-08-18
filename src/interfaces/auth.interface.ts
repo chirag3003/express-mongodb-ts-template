@@ -1,4 +1,4 @@
-import { Request, Response } from 'express'
+import { NextFunction, Request, Response } from 'express'
 import { CreateUserInput } from '@/validators/user.validator'
 
 export interface IAuthController {
@@ -9,4 +9,8 @@ export interface IAuthController {
 export interface IAuthService {
   createUser(input: CreateUserInput): Promise<IUser>
   loginUser(email: string, password: string): Promise<IUser | null>
+}
+
+export interface IAuthMiddleware {
+  authenticate(req: Request, res: Response, next: NextFunction): Promise<void>
 }
