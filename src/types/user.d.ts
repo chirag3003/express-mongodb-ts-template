@@ -1,5 +1,5 @@
 interface IUser {
-  _id: string
+  _id: string | ObjectId
   email: string
   name: string
   username: string
