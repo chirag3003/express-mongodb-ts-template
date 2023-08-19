@@ -15,3 +15,13 @@ export const loginUserInputValidator = z.object({
 })
 
 export type LoginUserInput = z.infer<typeof loginUserInputValidator>
+
+export const responseUserValidator = z.object({
+  _id: z.any(),
+  email: z.string(),
+  name: z.string(),
+  username: z.string(),
+  creator: z.boolean(),
+})
+
+export type ResponseUser = z.infer<typeof responseUserValidator>

@@ -17,9 +17,7 @@ export class AuthController implements IAuthController {
     try {
       const body = createUserInputValidator.parse(req.body as CreateUserInput)
       const user = await authService.createUser(body)
-      res
-        .status(StatusCodes.OK)
-        .json({ token: generateJWT({ _id: user._id, email: user.email }) })
+      res.status(StatusCodes.OK).json({ token: generateJWT(user) })
     } catch (err) {
       console.error(err)
       if (err instanceof ZodError) {
@@ -37,9 +35,7 @@ export class AuthController implements IAuthController {
         res.sendStatus(StatusCodes.UNAUTHORIZED)
         return
       }
-      res
-        .status(StatusCodes.OK)
-        .json({ token: generateJWT({ _id: user._id, email: user.email }) })
+      res.status(StatusCodes.OK).json({ token: generateJWT(user) })
     } catch (err) {
       console.error(err)
       if (err instanceof ZodError) {
