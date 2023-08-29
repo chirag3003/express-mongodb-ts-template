@@ -2,7 +2,7 @@
   "name": "express-mongodb-ts-template",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:cd-freelance/elearning-back.git",
+  "repository": "git@github.com:git@github.com:chirag3003/express-monodb-ts-template.git",
   "author": "Chirag Bhalotia <chiragbhalotia0412@gmail.com>",
   "license": "MIT",
   "scripts": {
