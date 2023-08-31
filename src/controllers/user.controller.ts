@@ -1,13 +1,12 @@
 import { IUserController } from '@/interfaces/user.interface'
 import { UserService } from '@/services/user.service'
-import { IRequest } from '@/types/request'
 import { responseUserValidator } from '@/validators/user.validator'
-import { Response } from 'express'
+import { Request, Response } from 'express'
 import { ReasonPhrases, StatusCodes } from 'http-status-codes'
 
 const userService = new UserService()
 export default class UserController implements IUserController {
-  async me(req: IRequest, res: Response): Promise<void> {
+  async me(req: Request, res: Response): Promise<void> {
     try {
       const { _id } = req.user
       const user = await userService.getUserById(_id)

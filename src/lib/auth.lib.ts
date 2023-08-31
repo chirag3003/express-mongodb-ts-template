@@ -33,3 +33,11 @@ export const verifyJWT = (token: string): IJWTData => {
   const data = jwt.verify(token, process.env.JWT_SECRET)
   return data as IJWTData
 }
+export const generateAdminJWT = (data: IAdminJWTData): string => {
+  return jwt.sign(data, process.env.ADMIN_JWT_SECRET, { expiresIn: '10d' })
+}
+
+export const verifyAdminJWT = (token: string): IAdminJWTData => {
+  const data = jwt.verify(token, process.env.ADMIN_JWT_SECRET)
+  return data as IAdminJWTData
+}
